@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessSolutions - Future-Proofing Your Enterprise</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            @apply bg-gray-50 text-gray-800; /* Default body background and text color */
+        }
+        /* Custom gradient for buttons/highlights */
+        .btn-gradient {
+            background-image: linear-gradient(to right, #007bff, #00c6ff);
+        }
+        .btn-gradient:hover {
+            background-image: linear-gradient(to right, #0056b3, #007bff);
+        }
+        /* Custom section background/shadows */
+        section:nth-child(even) {
+            @apply bg-white;
+        }
+        /* Custom card style for glassmorphism effect (can be used on specific cards) */
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.08); /* Slightly transparent white */
+            backdrop-filter: blur(12px); /* Frosted glass effect */
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Light border */
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white bg-opacity-95 backdrop-blur-md fixed w-full top-0 left-0 z-50 shadow-lg py-4 rounded-b-xl">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold text-blue-600">BusinessSolutions</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#hero-tailwind" class="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300">Home</a>
+                <a href="#features-tailwind" class="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300">Services</a>
+                <a href="#about-tailwind" class="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300">About Us</a>
+                <a href="#testimonials-tailwind" class="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300">Clients</a>
+                <a href="#blog-tailwind" class="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300">Insights</a>
+                <a href="#contact-tailwind" class="text-lg font-medium text-gray-700 hover:text-blue-600 transition-colors duration-300">Contact</a>
+            </nav>
+            <button id="mobile-menu-button-tailwind" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu-tailwind" class="hidden md:hidden absolute top-full left-0 w-full bg-white bg-opacity-95 backdrop-blur-md shadow-xl pb-4 rounded-b-xl">
+            <div class="flex flex-col items-center space-y-4 py-4">
+                <a href="#hero-tailwind" class="text-xl font-medium text-gray-800 hover:text-blue-600 transition-colors duration-300 w-full text-center py-2 rounded-md">Home</a>
+                <a href="#features-tailwind" class="text-xl font-medium text-gray-800 hover:text-blue-600 transition-colors duration-300 w-full text-center py-2 rounded-md">Services</a>
+                <a href="#about-tailwind" class="text-xl font-medium text-gray-800 hover:text-blue-600 transition-colors duration-300 w-full text-center py-2 rounded-md">About Us</a>
+                <a href="#testimonials-tailwind" class="text-xl font-medium text-gray-800 hover:text-blue-600 transition-colors duration-300 w-full text-center py-2 rounded-md">Clients</a>
+                <a href="#blog-tailwind" class="text-xl font-medium text-gray-800 hover:text-blue-600 transition-colors duration-300 w-full text-center py-2 rounded-md">Insights</a>
+                <a href="#contact-tailwind" class="text-xl font-medium text-gray-800 hover:text-blue-600 transition-colors duration-300 w-full text-center py-2 rounded-md">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center text-center text-white px-4 bg-cover bg-center" style="background-image: url('BusinessSolution.jpg')" id="hero-tailwind">
+            <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+            <div class="relative z-20 max-w-4xl mx-auto p-5">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-5 leading-tight animate-fade-in-down">Future-Proofing Your Enterprise</h1>
+                <p class="text-lg md:text-2xl mb-8 opacity-0 animate-fade-in-up animate-delay-100">Empowering businesses with agile strategies and breakthrough technologies for an ever-evolving market.</p>
+                <a href="#features-tailwind" class="inline-block btn-gradient text-white font-bold py-4 px-10 rounded-full text-xl transition-all duration-300 hover:scale-105 shadow-xl opacity-0 animate-zoom-in animate-delay-200">Start Your Transformation</a>
+            </div>
+        </section>
+
+        <!-- Features/Services Section -->
+        <section class="py-20 bg-gray-50 rounded-b-xl shadow-xl" id="features-tailwind">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 text-gray-900">Our Strategic Pillars</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/80x80/007bff/ffffff?text=💡" alt="Innovation Icon" class="mx-auto mb-6 w-20 h-20">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-3">Innovation & Strategy</h3>
+                        <p class="text-gray-600 text-lg">Guiding you to discover new opportunities and build robust future-ready strategies.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/80x80/007bff/ffffff?text=🌐" alt="Digital Icon" class="mx-auto mb-6 w-20 h-20">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-3">Digital Acceleration</h3>
+                        <p class="text-gray-600 text-lg">Implementing leading-edge digital solutions to optimize operations and engagement.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/80x80/007bff/ffffff?text=🧠" alt="AI Icon" class="mx-auto mb-6 w-20 h-20">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-3">AI & Data Intelligence</h3>
+                        <p class="text-gray-600 text-lg">Transforming raw data into strategic insights with advanced AI and analytics.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center transform transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/80x80/007bff/ffffff?text=🤝" alt="Partnership Icon" class="mx-auto mb-6 w-20 h-20">
+                        <h3 class="text-2xl font-bold text-blue-600 mb-3">Partnership & Growth</h3>
+                        <p class="text-gray-600 text-lg">Building strong, collaborative relationships for sustained growth and mutual success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="py-20 bg-white shadow-xl" id="about-tailwind">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 text-gray-900">Who We Are</h2>
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2">
+                        <img src="https://placehold.co/700x500/0A1B2D/FFFFFF?text=Collaborative+Team" alt="Collaborative Team" class="rounded-3xl shadow-2xl w-full h-auto object-cover">
+                    </div>
+                    <div class="lg:w-1/2 text-center lg:text-left">
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-blue-600 mb-6">Your Vision, Our Expertise</h3>
+                        <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
+                            BusinessSolutions has been at the forefront of business transformation for over 15 years. Our dedicated team of industry veterans and forward-thinkers collaborates closely with clients to navigate complex challenges and seize emerging opportunities.
+                        </p>
+                        <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+                            We pride ourselves on our agile methodologies, deep market insights, and unwavering commitment to delivering tangible, measurable results that empower your business to thrive in a competitive landscape.
+                        </p>
+                        <a href="#" class="inline-block btn-gradient text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-md">Discover Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20 bg-gray-50 shadow-xl" id="testimonials-tailwind">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 text-gray-900">Success Stories</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                        <p class="text-gray-700 italic mb-6 text-lg">"BusinessSolutions provided a game-changing digital strategy. Their approach was insightful, and the implementation was seamless. Truly a partner in success!"</p>
+                        <div class="text-yellow-500 mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="font-semibold text-blue-600 text-xl">- Alex Chen, CEO of InnovateCorp</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                        <p class="text-gray-700 italic mb-6 text-lg">"The cybersecurity solutions implemented by BusinessSolutions gave us peace of mind. Their team is knowledgeable and incredibly responsive."</p>
+                        <div class="text-yellow-500 mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <p class="font-semibold text-blue-600 text-xl">- Maria Rodriguez, CTO of GlobalTech</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+                        <p class="text-gray-700 italic mb-6 text-lg">"Their expertise in data analytics helped us uncover critical market trends, leading to a significant boost in our strategic decision-making."</p>
+                        <div class="text-yellow-500 mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="font-semibold text-blue-600 text-xl">- David Lee, Marketing Lead at FutureFoods</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="py-24 btn-gradient text-white text-center rounded-xl shadow-2xl mx-auto container px-4 mb-8" id="contact-tailwind">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">Ready to Achieve Your Business Goals?</h2>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Let's discuss how BusinessSolutions can empower your next big leap. Schedule a free consultation today.</p>
+            <a href="#" class="inline-block bg-white text-blue-700 font-bold py-4 px-12 rounded-full text-xl transition-all duration-300 hover:scale-105 shadow-lg">Contact Our Experts</a>
+        </section>
+
+        <!-- Blog/Insights Section -->
+        <section class="py-20 bg-gray-50 rounded-b-xl shadow-xl" id="blog-tailwind">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 text-gray-900">Latest Insights & Resources</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://placehold.co/500x300/333/FFFFFF?text=AI+Strategy" alt="Blog Post Image 1" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">AI in 2025: Beyond the Hype</h3>
+                            <p class="text-gray-600 mb-4 text-base">An in-depth look at practical AI applications that are shaping the future of enterprise technology.</p>
+                            <a href="#" class="text-blue-600 font-semibold hover:underline">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://placehold.co/500x300/333/FFFFFF?text=Future+Work" alt="Blog Post Image 2" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">The Evolving Workplace: 2025 Trends</h3>
+                            <p class="text-gray-600 mb-4 text-base">Adapting to hybrid models, advanced collaboration tools, and talent acquisition in the new era.</p>
+                            <a href="#" class="text-blue-600 font-semibold hover:underline">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="https://placehold.co/500x300/333/FFFFFF?text=Market+Insights" alt="Blog Post Image 3" class="w-full h-52 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Navigating Market Volatility in 2025</h3>
+                            <p class="text-gray-600 mb-4 text-base">Strategies for resilience and growth in an uncertain economic climate.</p>
+                            <a href="#" class="text-blue-600 font-semibold hover:underline">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300 py-16 rounded-t-xl mt-8">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div>
+                <h4 class="text-2xl font-extrabold text-white mb-6">BusinessSolutions</h4>
+                <p class="text-gray-400 mb-4">Empowering businesses through strategic innovation and digital excellence.</p>
+                <div class="flex space-x-5 text-xl">
+                    <a href="#" class="hover:text-blue-500 transition-colors duration-300"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-blue-500 transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-blue-500 transition-colors duration-300"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="hover:text-blue-500 transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold text-white mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#features-tailwind" class="hover:text-blue-500 transition-colors duration-300">Our Services</a></li>
+                    <li><a href="#about-tailwind" class="hover:text-blue-500 transition-colors duration-300">About Us</a></li>
+                    <li><a href="#testimonials-tailwind" class="hover:text-blue-500 transition-colors duration-300">Client Success</a></li>
+                    <li><a href="#blog-tailwind" class="hover:text-blue-500 transition-colors duration-300">Insights Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold text-white mb-6">Contact Us</h4>
+                <address class="not-italic">
+                    <p class="mb-2">123 Corporate Blvd, Suite 400</p>
+                    <p class="mb-2">Innovation City, IN 12345</p>
+                    <p class="mb-2">Email: <a href="mailto:info@businesssolutions.com" class="hover:text-blue-500 transition-colors duration-300">info@businesssolutions.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890" class="hover:text-blue-500 transition-colors duration-300">(123) 456-7890</a></p>
+                </address>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold text-white mb-6">Stay Connected</h4>
+                <p class="text-gray-400 mb-4">Subscribe to our newsletter for exclusive updates.</p>
+                <form>
+                    <input type="email" placeholder="Enter your email" class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 mb-4">
+                    <button type="submit" class="w-full btn-gradient text-white font-semibold py-3 rounded-lg hover:shadow-xl transition-all duration-300">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-gray-700">
+            <p>&copy; 2025 BusinessSolutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuButtonTailwind = document.getElementById('mobile-menu-button-tailwind');
+        const mobileMenuTailwind = document.getElementById('mobile-menu-tailwind');
+
+        mobileMenuButtonTailwind.addEventListener('click', () => {
+            mobileMenuTailwind.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling for Nav Links
+        // Corrected: Use a specific ID for the main navigation if needed, or query all nav links broadly.
+        // For simplicity, using a broad query to ensure all internal links function.
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking
+                if (!mobileMenuTailwind.classList.contains('hidden')) {
+                    mobileMenuTailwind.classList.add('hidden');
+                }
+            });
+        });
+
+        // Simple Fade-in animation for hero elements on page load
+        // Corrected: Target elements *within* the hero section by ID
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroSection = document.getElementById('hero-tailwind');
+            if (heroSection) { // Ensure hero section exists before trying to animate its children
+                heroSection.querySelector('h1').classList.add('animate-fade-in-down');
+                heroSection.querySelector('p').classList.add('animate-fade-in-up');
+                heroSection.querySelector('.btn-gradient').classList.add('animate-zoom-in');
+            }
+        });
+
+        // Dynamically add Tailwind utility classes for animations (if not already defined via JIT or custom CSS)
+        // This is typically handled by Tailwind JIT mode or PostCSS, but for CDN, we might need a small workaround
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fadeInDown {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes zoomIn {
+                from { opacity: 0; transform: scale(0.9); }
+                to { opacity: 1; transform: scale(1); }
+            }
+            .animate-fade-in-down {
+                animation: fadeInDown 1s ease-out forwards;
+            }
+            .animate-fade-in-up {
+                animation: fadeInUp 1s ease-out forwards;
+            }
+            .animate-zoom-in {
+                animation: zoomIn 1s ease-out forwards;
+            }
+            .animate-delay-100 { animation-delay: 0.1s; }
+            .animate-delay-200 { animation-delay: 0.2s; }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+// Import Bootstrap's functions and variables
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+// Custom theme colors
+$primary: #007bff; // Keeping Bootstrap's blue as primary, but can be changed
+$secondary: #6c757d;
+$success: #28a745;
+$dark: #212529;
+$light: #f8f9fa;
+
+// Override Bootstrap default variables
+$body-bg: $light;
+$body-color: $dark;
+$font-family-base: 'Roboto', sans-serif;
+$headings-font-family: 'Roboto', sans-serif;
+$border-radius: 0.5rem;
+$card-border-radius: $border-radius;
+$btn-border-radius: $border-radius;
+
+// Custom map for theme colors (optional, if you want more specific control)
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "dark": $dark,
+  "light": $light
+);
+
+// Import Bootstrap's remaining files
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// Custom styles (e.g., for hero section background image)
+.hero-section {
+    position: relative;
+    z-index: 1;
+    min-height: 550px; // Ensure proper height
+    display: flex;
+    align-items: center;
+
+    .hero-content {
+        z-index: 2;
+        color: white; // Text color on hero background
+    }
+}

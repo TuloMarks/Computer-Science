@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessSolutions - Innovate. Grow. Succeed.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease-in-out;
+        }
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0056b3;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            font-weight: 500;
+            color: #555;
+            transition: color 0.3s ease-in-out;
+        }
+        nav ul li a:hover {
+            color: #0056b3;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: url('https://placehold.co/1920x1080/0A1B2D/FFFFFF?text=Innovate+Your+Business') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px; /* Offset for fixed header */
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            animation: fadeInDown 1s ease-out;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            animation: zoomIn 1s ease-out 0.4s;
+            animation-fill-mode: both;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            opacity: 0; /* For JS scroll animation */
+            transform: translateY(20px); /* For JS scroll animation */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        section.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        h2 {
+            font-size: 40px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #222;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        .feature-item {
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .feature-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        .feature-item h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #0056b3;
+        }
+        .feature-item p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .about-text {
+            flex: 2;
+        }
+        .about-text h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0056b3;
+        }
+        .about-text p {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 17px;
+        }
+        .testimonial-card .author {
+            font-weight: 600;
+            color: #0056b3;
+            font-size: 18px;
+        }
+        .testimonial-card .rating {
+            color: #FFD700; /* Gold stars */
+            margin-top: 10px;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .cta-banner h2 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 44px;
+        }
+        .cta-banner .btn {
+            background-color: #fff;
+            color: #007bff;
+        }
+        .cta-banner .btn:hover {
+            background-color: #f0f0f0;
+            color: #0056b3;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .blog-post {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        .blog-post img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog-post-content {
+            padding: 25px;
+        }
+        .blog-post-content h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .blog-post-content p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .blog-post-content .read-more {
+            color: #007bff;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .blog-post-content .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #bbb;
+            padding: 60px 0;
+            font-size: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-top: 20px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-column h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        .footer-column ul li a {
+            transition: color 0.3s ease-in-out;
+        }
+        .footer-column ul li a:hover {
+            color: #007bff;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            font-size: 20px;
+            color: #bbb;
+            transition: color 0.3s ease-in-out;
+        }
+        .social-links a:hover {
+            color: #007bff;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-image {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+                border-radius: 0 0 10px 10px;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            h2 {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .cta-banner h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 24px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            h2 {
+                font-size: 28px;
+            }
+            .feature-item h3 {
+                font-size: 20px;
+            }
+            .about-text h3 {
+                font-size: 28px;
+            }
+            .blog-post-content h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">BusinessSolutions</a>
+            <nav>
+                <button class="menu-toggle" id="menuToggle">&#9776;</button>
+                <ul id="mainNav">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#features">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#testimonials">Clients</a></li>
+                    <li><a href="#blog">Insights</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h1>Driving Innovation for Business Growth</h1>
+                <p>We provide strategic solutions and cutting-edge technology to transform your enterprise and achieve sustainable success.</p>
+                <a href="#features" class="btn">Discover Our Solutions</a>
+            </div>
+        </section>
+
+        <!-- Features/Services Section -->
+        <section id="features">
+            <div class="container">
+                <h2>Our Core Services</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <img src="https://placehold.co/80x80/007bff/ffffff?text=📈" alt="Strategy Icon">
+                        <h3>Strategic Consulting</h3>
+                        <p>Expert guidance to define your vision and chart a clear path to market leadership.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://placehold.co/80x80/007bff/ffffff?text=💻" alt="Tech Icon">
+                        <h3>Digital Transformation</h3>
+                        <p>Leverage cutting-edge technology to streamline operations and enhance customer experiences.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://placehold.co/80x80/007bff/ffffff?text=📊" alt="Data Icon">
+                        <h3>Data Analytics & AI</h3>
+                        <p>Unlock actionable insights from your data to make informed decisions and predict trends.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://placehold.co/80x80/007bff/ffffff?text=🔒" alt="Security Icon">
+                        <h3>Cybersecurity Solutions</h3>
+                        <p>Protect your valuable assets and data with robust, adaptive security frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about">
+            <div class="container">
+                <h2>About BusinessSolutions</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://placehold.co/600x400/0A1B2D/FFFFFF?text=Our+Team" alt="Our Team">
+                    </div>
+                    <div class="about-text">
+                        <h3>Partners in Progress</h3>
+                        <p>At BusinessSolutions, we believe in fostering long-term partnerships with our clients. For over a decade, we've been dedicated to delivering bespoke solutions that drive measurable impact and foster sustainable growth.</p>
+                        <p>Our team of seasoned experts brings a wealth of experience across diverse industries, ensuring that every challenge is met with innovative thinking and meticulous execution. We're committed to your success.</p>
+                        <a href="#" class="btn btn-small">Learn More About Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container">
+                <h2>What Our Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"BusinessSolutions transformed our digital infrastructure. Their strategic approach and flawless execution led to significant efficiency gains."</p>
+                        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <div class="author">- Jane Doe, CEO of TechCorp</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Their data analytics team provided insights we never knew existed, giving us a competitive edge in the market."</p>
+                        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                        <div class="author">- John Smith, Marketing Director at Global Foods</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"From initial consultation to implementation, BusinessSolutions demonstrated unparalleled professionalism and expertise. Highly recommend!"</p>
+                        <div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <div class="author">- Alice Johnson, Founder of InnovateX</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Banner -->
+        <section class="cta-banner" id="contact">
+            <div class="container">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Contact us today for a free consultation and let's build your future together.</p>
+                <a href="#" class="btn">Get Started Now</a>
+            </div>
+        </section>
+
+        <!-- Blog/Insights Section -->
+        <section id="blog">
+            <div class="container">
+                <h2>Latest Insights & News</h2>
+                <div class="blog-grid">
+                    <div class="blog-post">
+                        <img src="https://placehold.co/400x200/555/FFFFFF?text=AI+Future" alt="Blog Post Image 1">
+                        <div class="blog-post-content">
+                            <h3>The Impact of AI on Modern Businesses</h3>
+                            <p>Exploring how artificial intelligence is reshaping industries and creating new opportunities for growth.</p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="blog-post">
+                        <img src="https://placehold.co/400x200/555/FFFFFF?text=Cyber+Security" alt="Blog Post Image 2">
+                        <div class="blog-post-content">
+                            <h3>Top Cybersecurity Trends for 2025</h3>
+                            <p>Stay ahead of threats with our expert analysis of the evolving cybersecurity landscape.</p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="blog-post">
+                        <img src="https://placehold.co/400x200/555/FFFFFF?text=Digital+Strategy" alt="Blog Post Image 3">
+                        <div class="blog-post-content">
+                            <h3>Crafting a Winning Digital Strategy</h3>
+                            <p>Key steps to develop a robust digital strategy that delivers tangible business outcomes.</p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-column">
+                <h4>BusinessSolutions</h4>
+                <p>Leading the way in strategic business transformation and digital innovation.</p>
+                <div class="social-links">
+                    <a href="#">FB</a> <!-- Placeholder for social icons -->
+                    <a href="#">TW</a>
+                    <a href="#">LI</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#features">Our Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#testimonials">Clients</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <p>123 Business Rd, Suite 400<br>Innovation City, IN 12345</p>
+                <p>Email: info@businesssolutions.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-column">
+                <h4>Newsletter</h4>
+                <p>Stay informed with our latest insights.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email" style="padding: 10px; border-radius: 5px; border: 1px solid #555; background-color: #333; color: #fff; width: 100%; margin-bottom: 10px;">
+                    <button type="submit" class="btn" style="padding: 10px 20px; font-size: 14px; border-radius: 5px;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BusinessSolutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Nav Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after clicking
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll Animation for Sections
+        const sections = document.querySelectorAll('main section');
+
+        const observerOptions = {
+            root: null, /* viewport */
+            rootMargin: '0px',
+            threshold: 0.1 /* 10% of element visible */
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+    </script>
+</body>
+</html>

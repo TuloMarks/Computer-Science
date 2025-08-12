@@ -1,0 +1,259 @@
+/* Universal Styles & Variables */
+:root {
+    --primary-yellow: #f8c200; /* Approximate yellow from the image */
+    --dark-grey: #333333; /* Approximate dark grey from the image */
+    --light-grey-text: #cccccc; /* Approximate text color */
+    --white: #ffffff;
+    --black: #000000;
+    --font-sans: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--dark-grey);
+    color: var(--light-grey-text);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--light-grey-text);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    color: var(--white);
+    margin-top: 0;
+}
+
+/* Header Section */
+.site-header {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px; /* Adjust column widths as needed */
+    grid-template-rows: auto auto; /* For two rows: top content and navigation */
+    gap: 0;
+    background-color: var(--black); /* Default background, individual sections will override */
+    color: var(--white);
+    position: relative; /* For positioning the nav */
+}
+
+.header-left {
+    background-color: var(--primary-yellow);
+    color: var(--black);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.header-left h1 {
+    font-size: 1.8em;
+    line-height: 1.2;
+    color: var(--black); /* Override for this section */
+}
+
+.header-middle {
+    background-color: var(--dark-grey); /* Or matching the image background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    overflow: hidden; /* To ensure image fits */
+}
+
+.header-middle img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.header-right {
+    background-color: var(--dark-grey);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    font-size: 0.9em;
+}
+
+.header-right p {
+    margin: 0;
+}
+
+.main-nav {
+    grid-column: 4 / 4; /* Positioned separately for top right */
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+    align-items: flex-start; /* Align to the top */
+    padding: 10px 20px 0 0; /* Adjust padding as needed */
+    background-color: var(--dark-grey); /* Matches header right */
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+}
+
+.main-nav ul li {
+    margin-bottom: 5px; /* Spacing between nav items */
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-yellow);
+    margin-right: 8px;
+    border-radius: 2px; /* Slight rounding for square-like bullet */
+}
+
+.main-nav ul li a {
+    color: var(--white);
+    font-size: 0.95em;
+    padding: 2px 0;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Main Content Wrapper */
+.main-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 250px; /* Main content and sidebar widths */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px; /* Max width for the whole content area */
+    margin: 20px auto; /* Center the content area */
+    background-color: var(--dark-grey); /* Matches body background */
+}
+
+.main-content {
+    background-color: var(--dark-grey); /* Ensure it matches */
+    padding-right: 20px; /* Space from sidebar */
+}
+
+.main-content h2 {
+    color: var(--primary-yellow);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--primary-yellow); /* Line under title */
+    padding-bottom: 10px;
+}
+
+.main-content p {
+    margin-bottom: 1em;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--dark-grey); /* Ensure it matches */
+    padding: 0; /* No padding around the entire sidebar as quick-links-header has its own */
+}
+
+.quick-links-header {
+    background-color: var(--primary-yellow);
+    padding: 10px 15px;
+    margin-bottom: 15px; /* Space between header and list */
+}
+
+.quick-links-header h3 {
+    color: var(--black);
+    font-size: 1.3em;
+    margin: 0;
+}
+
+.quick-links-list {
+    list-style: none;
+    padding: 0 15px; /* Padding for the list items */
+    margin: 0;
+}
+
+.quick-links-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start; /* Align bullet to top of text */
+}
+
+.quick-links-list li::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-yellow);
+    margin-right: 8px;
+    margin-top: 6px; /* Adjust to align with text baseline */
+    border-radius: 2px;
+    flex-shrink: 0; /* Prevent bullet from shrinking */
+}
+
+.quick-links-list li a {
+    color: var(--light-grey-text);
+    font-size: 0.95em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .site-header {
+        grid-template-columns: 1fr; /* Stack header elements */
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .header-left,
+    .header-middle,
+    .header-right,
+    .main-nav {
+        grid-column: 1 / -1; /* Span full width */
+        grid-row: auto; /* Auto-place */
+    }
+
+    .main-nav {
+        order: -1; /* Place navigation at the very top on small screens */
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .main-nav ul {
+        flex-direction: row; /* Horizontal for small screens */
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: center;
+    }
+
+    .main-nav ul li {
+        margin: 0 10px 5px 0;
+    }
+
+    .main-content-wrapper {
+        grid-template-columns: 1fr; /* Stack main content and sidebar */
+        padding: 15px;
+    }
+
+    .main-content {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-nav ul {
+        flex-direction: column; /* Back to vertical for very small screens */
+        align-items: flex-start;
+    }
+    .main-nav ul li {
+        margin: 0 0 5px 0;
+    }
+}

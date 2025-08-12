@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Business - 2025 Enhanced Redesign (Tailwind)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Custom styles for pseudo-elements and specific overrides */
+        .nav-link-underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: theme('colors.primary-yellow');
+            transition: width 0.3s ease;
+        }
+        .nav-link-underline:hover::after {
+            width: 100%;
+        }
+        .section-title-underline::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: theme('colors.light-text');
+            border-radius: 2px;
+        }
+        .footer-title-underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: theme('colors.light-text');
+        }
+        @media (max-width: 768px) {
+            .nav-link-underline::after {
+                display: none;
+            }
+            .footer-title-underline::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'primary-yellow': '#F8C200',
+                'secondary-dark': '#333333',
+                'dark-accent': '#555555',
+                'light-text': '#EEEEEE',
+                'dark-text': '#222222',
+                'bg-dark': '#2A2A2A',
+              },
+              fontFamily: {
+                sans: ['Poppins', 'sans-serif'],
+                heading: ['Montserrat', 'sans-serif'],
+              },
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-bg-dark text-light-text font-sans leading-relaxed">
+    <header class="bg-secondary-dark py-4 border-b-4 border-primary-yellow">
+        <div class="container mx-auto px-5 flex justify-between items-center">
+            <div class="text-light-text font-bold text-3xl">
+                <a href="#" class="text-light-text no-underline">Computer <span class="text-primary-yellow">Business</span> Name</a>
+            </div>
+            <nav class="md:flex hidden">
+                <ul class="flex space-x-8">
+                    <li><a href="#hero" class="text-light-text font-normal text-lg relative py-1 nav-link-underline">Home</a></li>
+                    <li><a href="#about" class="text-light-text font-normal text-lg relative py-1 nav-link-underline">About Us</a></li>
+                    <li><a href="#services" class="text-light-text font-normal text-lg relative py-1 nav-link-underline">Services</a></li>
+                    <li><a href="#portfolio" class="text-light-text font-normal text-lg relative py-1 nav-link-underline">Portfolio</a></li>
+                    <li><a href="#contact" class="text-light-text font-normal text-lg relative py-1 nav-link-underline">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button id="hamburger-menu" class="text-primary-yellow text-3xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <nav id="mobile-menu" class="md:hidden hidden bg-secondary-dark absolute top-[70px] left-0 w-full z-50 py-4 border-t border-dark-accent">
+            <ul class="flex flex-col items-center space-y-4">
+                <li><a href="#hero" class="text-light-text text-xl py-2 block">Home</a></li>
+                <li><a href="#about" class="text-light-text text-xl py-2 block">About Us</a></li>
+                <li><a href="#services" class="text-light-text text-xl py-2 block">Services</a></li>
+                <li><a href="#portfolio" class="text-light-text text-xl py-2 block">Portfolio</a></li>
+                <li><a href="#contact" class="text-light-text text-xl py-2 block">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="relative h-[600px] flex items-center justify-center text-center text-light-text bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1600x600/2A2A2A/555555?text=Future+Tech+Background');" id="hero">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative z-10 max-w-4xl px-5">
+            <h1 class="font-heading text-5xl md:text-6xl font-bold leading-tight mb-5 text-shadow-lg">Innovate Your Digital Future</h1>
+            <p class="text-lg md:text-xl mb-10 font-light">Empowering businesses with cutting-edge IT solutions and unparalleled expertise. Achieve your goals with us.</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="#services" class="inline-block py-3 px-8 bg-primary-yellow text-dark-text font-semibold rounded-full hover:bg-yellow-500 transition duration-300 shadow-md">Our Services</a>
+                <a href="#contact" class="inline-block py-3 px-8 text-primary-yellow border-2 border-primary-yellow font-semibold rounded-full hover:bg-primary-yellow hover:text-dark-text transition duration-300 shadow-md">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-5 py-20 flex flex-col md:flex-row items-center gap-16" id="about">
+        <div class="w-full md:w-1/2 order-2 md:order-1">
+            <h2 class="font-heading text-5xl text-primary-yellow mb-6 pb-4 relative section-title-underline">Who We Are</h2>
+            <p class="text-lg mb-6"><strong>Computer Business Name</strong> is a leading technology solutions provider dedicated to helping businesses thrive in the digital age. With a team of experienced professionals, we deliver bespoke solutions that drive efficiency, enhance security, and foster innovation.</p>
+            <p class="text-base">Our passion lies in understanding your unique challenges and transforming them into opportunities. We believe in building lasting partnerships through transparency, reliability, and a commitment to excellence.</p>
+        </div>
+        <div class="w-full md:w-1/2 order-1 md:order-2 mb-8 md:mb-0">
+            <img src="https://via.placeholder.com/500x350/333333/F8C200?text=Modern+Workspace" alt="Modern Workspace" class="w-full h-auto rounded-lg shadow-xl">
+        </div>
+    </section>
+
+    <section class="bg-secondary-dark py-20" id="services">
+        <div class="container mx-auto px-5">
+            <h2 class="font-heading text-5xl text-primary-yellow mb-12 pb-4 relative section-title-underline text-center">Our Core Services</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+                <div class="bg-dark-accent p-8 rounded-lg shadow-md hover:translate-y-[-10px] transition duration-300">
+                    <i class="fas fa-desktop text-primary-yellow text-5xl mb-6"></i>
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-light-text">Web Development</h3>
+                    <p class="text-base text-light-text">Crafting responsive, high-performance websites tailored to your brand's unique identity.</p>
+                </div>
+                <div class="bg-dark-accent p-8 rounded-lg shadow-md hover:translate-y-[-10px] transition duration-300">
+                    <i class="fas fa-cloud text-primary-yellow text-5xl mb-6"></i>
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-light-text">Cloud Solutions</h3>
+                    <p class="text-base text-light-text">Secure and scalable cloud infrastructure management for seamless operations.</p>
+                </div>
+                <div class="bg-dark-accent p-8 rounded-lg shadow-md hover:translate-y-[-10px] transition duration-300">
+                    <i class="fas fa-shield-alt text-primary-yellow text-5xl mb-6"></i>
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-light-text">Cybersecurity</h3>
+                    <p class="text-base text-light-text">Protecting your digital assets with robust security measures and proactive threat detection.</p>
+                </div>
+                <div class="bg-dark-accent p-8 rounded-lg shadow-md hover:translate-y-[-10px] transition duration-300">
+                    <i class="fas fa-chart-line text-primary-yellow text-5xl mb-6"></i>
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-light-text">IT Consulting</h3>
+                    <p class="text-base text-light-text">Expert guidance to optimize your technology strategy and drive business growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-primary-yellow py-20 text-dark-text text-center" id="portfolio">
+        <div class="container mx-auto px-5 max-w-4xl">
+            <h2 class="font-heading text-5xl md:text-6xl font-bold mb-6">Ready to Transform Your Business?</h2>
+            <p class="text-xl md:text-2xl mb-12 font-medium">Let's discuss how our tailored IT solutions can empower your success. Contact us today for a free consultation.</p>
+            <a href="#contact" class="inline-block py-4 px-10 bg-light-text text-secondary-dark font-semibold text-lg rounded-full shadow-lg hover:bg-dark-accent hover:text-light-text transition duration-300">Start Your Project</a>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-5 py-20" id="contact">
+        <h2 class="font-heading text-5xl text-primary-yellow mb-12 pb-4 relative section-title-underline text-center">Get In Touch</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 bg-secondary-dark p-10 rounded-lg shadow-xl">
+            <div class="text-light-text">
+                <h3 class="font-heading text-3xl text-primary-yellow mb-6">Contact Details</h3>
+                <p class="flex items-center mb-4 text-lg"><i class="fas fa-map-marker-alt text-primary-yellow text-xl mr-4"></i> 123 Tech Avenue, Innovation City, CA 90210</p>
+                <p class="flex items-center mb-4 text-lg"><i class="fas fa-phone text-primary-yellow text-xl mr-4"></i> +1 (123) 456-7890</p>
+                <p class="flex items-center mb-4 text-lg"><i class="fas fa-envelope text-primary-yellow text-xl mr-4"></i> info@computerbusiness.com</p>
+                <div class="flex space-x-6 mt-8">
+                    <a href="#" class="text-light-text text-3xl hover:text-primary-yellow transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-light-text text-3xl hover:text-primary-yellow transition duration-300"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-light-text text-3xl hover:text-primary-yellow transition duration-300"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-light-text text-3xl hover:text-primary-yellow transition duration-300"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="font-heading text-3xl text-primary-yellow mb-6">Send Us a Message</h3>
+                <form>
+                    <div class="mb-6">
+                        <label for="name" class="block text-light-text font-semibold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 rounded-lg border border-dark-accent bg-dark-accent text-light-text focus:border-primary-yellow focus:ring-2 focus:ring-yellow-400 focus:outline-none transition duration-300" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-light-text font-semibold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 rounded-lg border border-dark-accent bg-dark-accent text-light-text focus:border-primary-yellow focus:ring-2 focus:ring-yellow-400 focus:outline-none transition duration-300" required>
+                    </div>
+                    <div class="mb-8">
+                        <label for="message" class="block text-light-text font-semibold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full p-3 rounded-lg border border-dark-accent bg-dark-accent text-light-text focus:border-primary-yellow focus:ring-2 focus:ring-yellow-400 focus:outline-none transition duration-300" required></textarea>
+                    </div>
+                    <button type="submit" class="py-4 px-10 bg-primary-yellow text-dark-text font-semibold text-lg rounded-full hover:bg-yellow-500 transition duration-300 shadow-md">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-secondary-dark py-12 border-t-4 border-primary-yellow">
+        <div class="container mx-auto px-5 grid grid-cols-1 md:grid-cols-3 gap-10 text-light-text">
+            <div class="text-center md:text-left">
+                <h4 class="font-heading text-2xl text-primary-yellow mb-5 relative pb-3 footer-title-underline">Computer Business</h4>
+                <p class="text-base">Leading the way in digital transformation and innovative IT solutions.</p>
+            </div>
+            <div class="text-center md:text-left">
+                <h4 class="font-heading text-2xl text-primary-yellow mb-5 relative pb-3 footer-title-underline">Quick Links</h4>
+                <ul class="list-none p-0 m-0 text-base">
+                    <li class="mb-2"><a href="#about" class="text-light-text hover:text-primary-yellow transition duration-300 hover:translate-x-1 inline-block">About Us</a></li>
+                    <li class="mb-2"><a href="#services" class="text-light-text hover:text-primary-yellow transition duration-300 hover:translate-x-1 inline-block">Our Services</a></li>
+                    <li class="mb-2"><a href="#" class="text-light-text hover:text-primary-yellow transition duration-300 hover:translate-x-1 inline-block">Privacy Policy</a></li>
+                    <li class="mb-2"><a href="#" class="text-light-text hover:text-primary-yellow transition duration-300 hover:translate-x-1 inline-block">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="text-center md:text-left">
+                <h4 class="font-heading text-2xl text-primary-yellow mb-5 relative pb-3 footer-title-underline">Connect With Us</h4>
+                <p class="text-base">Subscribe to our newsletter for the latest updates.</p>
+                <form class="flex mt-4">
+                    <input type="email" placeholder="Your email" class="flex-1 p-3 rounded-l-lg border border-dark-accent bg-dark-accent text-light-text focus:border-primary-yellow focus:ring-2 focus:ring-yellow-400 focus:outline-none" required>
+                    <button type="submit" class="bg-primary-yellow text-dark-text p-3 rounded-r-lg hover:bg-yellow-500 transition duration-300"><i class="fas fa-paper-plane text-lg"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center text-gray-400 text-sm mt-10 pt-5 border-t border-dark-accent">
+            <p class="m-0">&copy; 2025 Computer Business Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll-polyfill/0.4.4/smoothscroll.min.js"></script>
+    <script>
+        // Hamburger menu functionality
+        document.getElementById('hamburger-menu').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('#main-nav a, #mobile-menu a, .btn').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile nav after clicking
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

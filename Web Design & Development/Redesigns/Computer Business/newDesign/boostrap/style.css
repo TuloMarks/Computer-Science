@@ -1,0 +1,224 @@
+// 1. Configuration: Override Bootstrap defaults
+@import "../node_modules/bootstrap/scss/functions";
+
+// Define custom colors
+$primary-yellow: #F8C200;
+$secondary-dark: #333333;
+$dark-accent: #555555;
+$light-text: #EEEEEE;
+$dark-text: #222222;
+$bg-dark: #2A2A2A;
+
+// Create a custom theme map for our colors
+$theme-colors: (
+  "primary-yellow": $primary-yellow,
+  "secondary-dark": $secondary-dark,
+  "dark-accent": $dark-accent,
+  "light-text": $light-text,
+  "dark-text": $dark-text,
+  "bg-dark": $bg-dark
+);
+
+// Override default Bootstrap variables
+$body-bg: $bg-dark;
+$body-color: $light-text;
+$font-family-sans-serif: 'Poppins', sans-serif;
+$headings-font-family: 'Montserrat', sans-serif;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Navbar Toggler color
+$navbar-dark-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23F8C200' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+$navbar-dark-toggler-border-color: $primary-yellow;
+
+// Form control customization
+$input-bg: $dark-accent;
+$input-border-color: $dark-accent;
+$input-color: $light-text;
+$input-placeholder-color: rgba($light-text, 0.7);
+$input-focus-border-color: $primary-yellow;
+$input-focus-box-shadow: 0 0 0 0.25rem rgba($primary-yellow, 0.25);
+$form-check-input-active-bg: $primary-yellow; // If you use radio/checkboxes
+
+// Re-import Bootstrap variables and mixins for them to apply
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/maps";
+
+// 2. Import Bootstrap's components
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// 3. Custom Styles
+body {
+    background-color: var(--bs-bg-dark);
+    color: var(--bs-light-text);
+}
+
+// Global section title
+.section-title-bs {
+    font-size: 2.8rem;
+    margin-bottom: 3.5rem; // 50px
+    position: relative;
+    text-align: center;
+    color: var(--bs-primary-yellow);
+    padding-bottom: 0.9375rem; // 15px
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 80px;
+        height: 4px;
+        background-color: var(--bs-light-text);
+        border-radius: 2px;
+    }
+}
+
+.btn-primary-yellow {
+    @include button-variant($primary-yellow, $primary-yellow, $text-dark);
+    &:hover {
+        background-color: darken($primary-yellow, 8%);
+        border-color: darken($primary-yellow, 8%);
+    }
+}
+
+.btn-outline-primary-yellow {
+    @include button-outline-variant($primary-yellow, $light-text);
+    &:hover {
+        background-color: $primary-yellow;
+        color: $dark-text !important; // Override default text color on hover
+    }
+}
+
+.custom-cta-btn {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    &:hover {
+        background-color: var(--bs-primary-yellow);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        color: var(--bs-dark-text) !important;
+    }
+}
+
+// Custom nav link underline
+.custom-nav-link {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0;
+        height: 2px;
+        background-color: var(--bs-primary-yellow);
+        transition: width 0.3s ease;
+    }
+    &:hover::after {
+        width: 100%;
+    }
+    // Hide for smaller screens
+    @include media-breakpoint-down(md) {
+        &::after {
+            display: none;
+        }
+    }
+}
+
+// Hero section styles
+.hero-section {
+    background: url('https://via.placeholder.com/1600x600/2A2A2A/555555?text=Future+Tech+Background') no-repeat center center/cover;
+    height: 600px;
+}
+
+// About section
+.about-section {
+    p {
+        color: var(--bs-light-text);
+    }
+    strong {
+        color: var(--bs-primary-yellow);
+    }
+}
+
+// Services section
+.service-card-bs {
+    background-color: var(--bs-dark-accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    .icon-bs {
+        font-size: 3.5rem;
+    }
+}
+
+// Contact form fields
+.custom-form-control {
+    background-color: var(--bs-dark-accent);
+    border: 1px solid var(--bs-dark-accent);
+    color: var(--bs-light-text);
+    &:focus {
+        background-color: var(--bs-dark-accent);
+        color: var(--bs-light-text);
+        border-color: var(--bs-primary-yellow);
+        box-shadow: var(--bs-input-focus-box-shadow);
+    }
+}
+
+.social-links-bs a {
+    color: var(--bs-light-text);
+    transition: color 0.3s ease;
+    &:hover {
+        color: var(--bs-primary-yellow);
+    }
+}
+
+// Footer
+.footer-title-underline-bs {
+    position: relative;
+    padding-bottom: 0.625rem; // 10px
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--bs-light-text);
+    }
+    @include media-breakpoint-down(md) {
+        text-align: center;
+        &::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+.footer-link-bs {
+    transition: color 0.3s ease, transform 0.3s ease;
+    &:hover {
+        color: var(--bs-primary-yellow) !important;
+        transform: translateX(5px);
+    }
+}
+.newsletter-form-bs {
+    input {
+        background-color: var(--bs-dark-accent);
+        border: none;
+        color: var(--bs-light-text);
+        &:focus {
+            box-shadow: 0 0 0 0.25rem rgba($primary-yellow, 0.25);
+        }
+    }
+    button {
+        background-color: var(--bs-primary-yellow);
+        color: var(--bs-dark-text);
+        &:hover {
+            background-color: darken($primary-yellow, 8%);
+        }
+    }
+}

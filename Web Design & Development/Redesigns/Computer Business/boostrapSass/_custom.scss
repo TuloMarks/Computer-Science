@@ -1,0 +1,143 @@
+// _custom.scss
+
+// 1. Customize Bootstrap variables
+$primary-yellow: #f8c200;
+$dark-grey: #333333;
+$light-grey-text: #cccccc;
+$black: #000000;
+$white: #ffffff;
+
+// Override Bootstrap's default colors if needed
+$theme-colors: (
+  "warning": $primary-yellow, // Using Bootstrap's 'warning' for our yellow
+  "dark": $dark-grey,       // Re-mapping Bootstrap's 'dark'
+  "light": $light-grey-text, // Re-mapping Bootstrap's 'light' for text
+  "black": $black,
+  "white": $white
+);
+
+// Override default font family
+$font-family-sans-serif: Arial, sans-serif;
+
+// Re-import Bootstrap to apply changes
+@import "bootstrap/scss/bootstrap";
+
+// 2. Custom styles for specific elements not directly covered by Bootstrap classes
+.custom-header {
+    background-color: $black; // Base background for header
+    padding: 0; // Bootstrap container-fluid adds padding by default
+}
+
+.header-left-bs {
+    min-width: 200px; // Maintain approximate width
+    h1 {
+        color: $black;
+        // Bootstrap's fs-3 for font size and fw-bold for weight
+    }
+}
+
+.header-middle-bs {
+    background-color: $dark-grey;
+}
+
+.header-right-bs {
+    min-width: 200px; // Maintain approximate width
+    p {
+        color: $white;
+        // Bootstrap's fs-6 for font size
+    }
+}
+
+.custom-nav-bs {
+    background-color: $dark-grey; // Matches header right
+    display: flex;
+    justify-content: flex-end; // Align to the right
+    align-items: flex-start; // Align to the top
+    padding-right: 20px;
+
+    .nav-item-bs {
+        margin-bottom: 5px;
+        position: relative; // For pseudo-element bullet
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: $primary-yellow;
+            margin-right: 8px;
+            border-radius: 2px;
+            position: absolute;
+            left: -16px; // Adjust based on padding/margin
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .nav-link {
+            padding: 2px 0; // Override Bootstrap's padding
+            color: $white;
+            font-size: 0.95em;
+        }
+    }
+
+    // Responsive adjustments for nav (Bootstrap handles much of this, but custom tweaks)
+    @include media-breakpoint-down(md) {
+        order: -1; // Place navigation at the very top on small screens
+        justify-content: center;
+        padding: 10px 0;
+
+        ul {
+            flex-direction: row !important; // Override Bootstrap's d-flex flex-column
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-item-bs {
+            margin: 0 10px 5px 0;
+            &::before {
+                display: none; // Hide bullets in horizontal layout
+            }
+        }
+    }
+}
+
+.main-content-bs {
+    // Bootstrap's col-md-8 handles width
+    p {
+        color: $light-grey-text; // Set paragraph color
+    }
+}
+
+.sidebar-bs {
+    // Bootstrap's col-md-4 handles width
+}
+
+.quick-links-header-bs {
+    // Background and text colors handled by Bootstrap utility classes
+    h3 {
+        color: $black; // Ensure heading inside yellow section is black
+    }
+}
+
+.quick-links-list-bs {
+    li {
+        margin-bottom: 8px;
+
+        a {
+            // Bootstrap's d-flex and align-items-center ensure alignment
+            font-size: 0.95em; // Custom font size
+        }
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: $primary-yellow;
+            margin-right: 8px;
+            margin-top: 6px; // Adjust to align with text baseline
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+    }
+}

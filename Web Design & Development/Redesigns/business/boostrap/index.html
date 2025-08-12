@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessSolutions - Empowering Your Vision</title>
+    <!-- Bootstrap CSS (compiled from Sass) -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!--
+        To compile the Sass:
+        1. Save the following SCSS content into a file named 'scss/_variables.scss':
+           ```scss
+           // Custom Bootstrap Variables (Override defaults here)
+           $primary: #007bff;
+           $secondary: #6c757d;
+           $success: #28a745;
+           $info: #17a2b8;
+           $warning: #ffc107;
+           $danger: #dc3545;
+           $light: #f8f9fa;
+           $dark: #343a40;
+
+           $font-family-sans-serif: 'Inter', sans-serif;
+           $headings-font-weight: 800;
+
+           $body-color: #333;
+           $body-bg: #f8f9fa;
+
+           // Card shadows and border radius
+           $card-border-radius: 1rem;
+           $card-box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+
+           // Buttons
+           $btn-border-radius-pill: 50rem;
+
+           // Navbar
+           $navbar-dark-color: rgba($white, .85);
+           $navbar-dark-hover-color: $white;
+           $navbar-padding-y: 1rem;
+           $navbar-padding-x: 1.5rem;
+           ```
+
+        2. Save the following SCSS content into a file named 'scss/_custom.scss':
+           ```scss
+           /* Custom CSS for Bootstrap elements */
+           .hero-section {
+               position: relative;
+               height: 100vh;
+               background: url('') no-repeat center center/cover;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               text-align: center;
+               color: #fff;
+               padding-top: 5rem;
+           }
+           .hero-section::before {
+               content: '';
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               background: rgba(0, 0, 0, 0.65);
+               z-index: 1;
+           }
+           .hero-content {
+               position: relative;
+               z-index: 2;
+               max-width: 800px;
+               padding: 1.25rem;
+           }
+           .hero-content h1 {
+               font-size: 3.5rem; // 56px
+               font-weight: 900;
+               line-height: 1.1;
+               margin-bottom: 1.25rem; // 20px
+           }
+           .hero-content p {
+               font-size: 1.25rem; // 20px
+               margin-bottom: 1.875rem; // 30px
+           }
+
+           .section-spacing {
+               padding: 5rem 0;
+               background-color: var(--bs-body-bg);
+               margin-bottom: 1.25rem;
+               border-radius: 0.625rem;
+               box-shadow: 0 0.3125rem 1.25rem rgba(0,0,0,0.05);
+           }
+           .section-spacing:nth-child(even) {
+               background-color: var(--bs-light);
+           }
+
+           .feature-icon {
+               width: 80px;
+               height: 80px;
+               margin-bottom: 1.25rem;
+           }
+
+           .about-img {
+               border-radius: 0.9375rem;
+               box-shadow: 0 0.625rem 1.5625rem rgba(0,0,0,0.1);
+           }
+
+           .testimonial-card .rating {
+               color: #FFD700; // Gold stars
+               margin-top: 0.625rem;
+           }
+
+           .cta-banner {
+               background: linear-gradient(135deg, #007bff, #00c6ff);
+               color: #fff;
+               text-align: center;
+               padding: 5rem 1.25rem;
+               border-radius: 0.625rem;
+               box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.2);
+           }
+           .cta-banner h2 {
+               color: #fff;
+               margin-bottom: 1.875rem;
+               font-size: 2.75rem; // 44px
+           }
+           .cta-banner .btn {
+               background-color: #fff;
+               color: #007bff;
+           }
+           .cta-banner .btn:hover {
+               background-color: #f0f0f0;
+               color: #0056b3;
+           }
+
+           .blog-post-img {
+               height: 200px;
+               object-fit: cover;
+           }
+
+           footer {
+               background-color: #222;
+               color: #bbb;
+               padding: 3.75rem 0;
+               font-size: 0.9375rem;
+               border-top-left-radius: 0.625rem;
+               border-top-right-radius: 0.625rem;
+               margin-top: 1.25rem;
+           }
+           footer .social-link {
+               font-size: 1.25rem;
+               color: #bbb;
+               transition: color 0.3s ease-in-out;
+           }
+           footer .social-link:hover {
+               color: #007bff;
+           }
+           footer .footer-nav-link:hover {
+               color: #007bff;
+           }
+           .newsletter-input {
+               padding: 10px;
+               border-radius: 5px;
+               border: 1px solid #555;
+               background-color: #333;
+               color: #fff;
+               width: 100%;
+               margin-bottom: 10px;
+           }
+           .newsletter-btn {
+               padding: 10px 20px;
+               font-size: 14px;
+               border-radius: 5px;
+           }
+
+           @media (max-width: 768px) {
+               .hero-content h1 {
+                   font-size: 2.5rem; // 40px
+               }
+               .hero-content p {
+                   font-size: 1.125rem; // 18px
+               }
+               .h2, h2 {
+                   font-size: 2rem; // 32px
+               }
+               .cta-banner h2 {
+                   font-size: 2rem; // 32px
+               }
+           }
+
+           @media (max-width: 576px) {
+               .hero-content h1 {
+                   font-size: 2rem; // 32px
+               }
+               .hero-content p {
+                   font-size: 1rem; // 16px
+               }
+               .btn {
+                   padding: 0.75rem 1.5rem;
+                   font-size: 1rem;
+               }
+               .h2, h2 {
+                   font-size: 1.75rem; // 28px
+               }
+               .feature-item h3 {
+                   font-size: 1.25rem; // 20px
+               }
+               .about-text h3 {
+                   font-size: 1.75rem; // 28px
+               }
+               .blog-post-content h3 {
+                   font-size: 1.25rem; // 20px
+               }
+           }
+           ```
+
+        3. Create a `main.scss` file (e.g., in `scss/main.scss`):
+           ```scss
+           // 1. Import your custom variables (must be before bootstrap)
+           @import 'variables';
+
+           // 2. Import Bootstrap's functions, variables, and mixins
+           @import "../node_modules/bootstrap/scss/functions";
+           @import "../node_modules/bootstrap/scss/variables";
+           @import "../node_modules/bootstrap/scss/mixins";
+
+           // 3. Import Bootstrap's components
+           @import "../node_modules/bootstrap/scss/root";
+           @import "../node_modules/bootstrap/scss/reboot";
+           @import "../node_modules/bootstrap/scss/type";
+           @import "../node_modules/bootstrap/scss/images";
+           @import "../node_modules/bootstrap/scss/containers";
+           @import "../node_modules/bootstrap/scss/grid";
+           @import "../node_modules/bootstrap/scss/tables";
+           @import "../node_modules/bootstrap/scss/forms";
+           @import "../node_modules/bootstrap/scss/buttons";
+           @import "../node_modules/bootstrap/scss/transitions";
+           @import "../node_modules/bootstrap/scss/dropdown";
+           @import "../node_modules/bootstrap/scss/button-group";
+           @import "../node_modules/bootstrap/scss/nav";
+           @import "../node_modules/bootstrap/scss/navbar";
+           @import "../node_modules/bootstrap/scss/card";
+           @import "../node_modules/bootstrap/scss/accordion";
+           @import "../node_modules/bootstrap/scss/breadcrumb";
+           @import "../node_modules/bootstrap/scss/pagination";
+           @import "../node_modules/bootstrap/scss/badge";
+           @import "../node_modules/bootstrap/scss/alert";
+           @import "../node_modules/bootstrap/scss/progress";
+           @import "../node_modules/bootstrap/scss/list-group";
+           @import "../node_modules/bootstrap/scss/close";
+           @import "../node_modules/bootstrap/scss/toasts";
+           @import "../node_modules/bootstrap/scss/modal";
+           @import "../node_modules/bootstrap/scss/tooltip";
+           @import "../node_modules/bootstrap/scss/popover";
+           @import "../node_modules/bootstrap/scss/carousel";
+           @import "../node_modules/bootstrap/scss/spinners";
+           @import "../node_modules/bootstrap/scss/offcanvas";
+           @import "../node_modules/bootstrap/scss/placeholders";
+
+           // 4. Import Bootstrap's utilities (after all components)
+           @import "../node_modules/bootstrap/scss/utilities";
+           @import "../node_modules/bootstrap/scss/utilities/api";
+
+           // 5. Import your custom styles
+           @import 'custom';
+           ```
+
+        4. Install Node.js and npm (if you don't have them).
+        5. In your project directory, run `npm init -y` and `npm install bootstrap@5.3.3 sass`.
+        6. Compile Sass to CSS (e.g., using a `package.json` script):
+           Add this to `package.json` under "scripts":
+           `"sass": "sass scss/main.scss css/style.css --watch"`
+           Then run `npm run sass` in your terminal. This will watch for changes and compile.
+    -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm py-3" style="--bs-bg-opacity: .95; backdrop-filter: blur(8px);">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 text-primary" href="#">BusinessSolutions</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" aria-current="page" href="#hero-section">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#features">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#testimonials">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#blog">Insights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero-section">
+            <div class="hero-content">
+                <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">Driving Innovation for Business Growth</h1>
+                <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s">We provide strategic solutions and cutting-edge technology to transform your enterprise and achieve sustainable success.</p>
+                <a href="#features" class="btn btn-primary btn-lg rounded-pill animate__animated animate__zoomIn animate__delay-2s">Discover Our Solutions</a>
+            </div>
+        </section>
+
+        <!-- Features/Services Section -->
+        <section class="section-spacing" id="features">
+            <div class="container">
+                <h2 class="text-center mb-5 fw-bold">Our Core Services</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center p-4">
+                                <img src="https://placehold.co/80x80/007bff/ffffff?text=📈" class="feature-icon mb-3" alt="Strategy Icon">
+                                <h3 class="card-title h5 fw-bold text-primary">Strategic Consulting</h3>
+                                <p class="card-text text-muted">Expert guidance to define your vision and chart a clear path to market leadership.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center p-4">
+                                <img src="https://placehold.co/80x80/007bff/ffffff?text=💻" class="feature-icon mb-3" alt="Tech Icon">
+                                <h3 class="card-title h5 fw-bold text-primary">Digital Transformation</h3>
+                                <p class="card-text text-muted">Leverage cutting-edge technology to streamline operations and enhance customer experiences.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center p-4">
+                                <img src="https://placehold.co/80x80/007bff/ffffff?text=📊" class="feature-icon mb-3" alt="Data Icon">
+                                <h3 class="card-title h5 fw-bold text-primary">Data Analytics & AI</h3>
+                                <p class="card-text text-muted">Unlock actionable insights from your data to make informed decisions and predict trends.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center p-4">
+                                <img src="https://placehold.co/80x80/007bff/ffffff?text=🔒" class="feature-icon mb-3" alt="Security Icon">
+                                <h3 class="card-title h5 fw-bold text-primary">Cybersecurity Solutions</h3>
+                                <p class="card-text text-muted">Protect your valuable assets and data with robust, adaptive security frameworks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="section-spacing" id="about">
+            <div class="container">
+                <h2 class="text-center mb-5 fw-bold">About BusinessSolutions</h2>
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <img src="https://placehold.co/600x400/0A1B2D/FFFFFF?text=Our+Team" class="img-fluid about-img" alt="Our Team">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="fw-bold text-primary mb-3">Partners in Progress</h3>
+                        <p class="text-dark-emphasis fs-5 mb-3">At BusinessSolutions, we believe in fostering long-term partnerships with our clients. For over a decade, we've been dedicated to delivering bespoke solutions that drive measurable impact and foster sustainable growth.</p>
+                        <p class="text-dark-emphasis fs-5 mb-4">Our team of seasoned experts brings a wealth of experience across diverse industries, ensuring that every challenge is met with innovative thinking and meticulous execution. We're committed to your success.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-pill">Learn More About Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section-spacing" id="testimonials">
+            <div class="container">
+                <h2 class="text-center mb-5 fw-bold">What Our Clients Say</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body p-4 text-center">
+                                <p class="card-text fst-italic text-muted">"BusinessSolutions transformed our digital infrastructure. Their strategic approach and flawless execution led to significant efficiency gains."</p>
+                                <div class="rating mb-2">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <div class="fw-semibold text-primary">- Jane Doe, CEO of TechCorp</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body p-4 text-center">
+                                <p class="card-text fst-italic text-muted">"Their data analytics team provided insights we never knew existed, giving us a competitive edge in the market."</p>
+                                <div class="rating mb-2">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                </div>
+                                <div class="fw-semibold text-primary">- John Smith, Marketing Director at Global Foods</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body p-4 text-center">
+                                <p class="card-text fst-italic text-muted">"From initial consultation to implementation, BusinessSolutions demonstrated unparalleled professionalism and expertise. Highly recommend!"</p>
+                                <div class="rating mb-2">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <div class="fw-semibold text-primary">- Alice Johnson, Founder of InnovateX</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner" id="contact">
+            <div class="container">
+                <h2 class="mb-4 fw-bold">Ready to Transform Your Business?</h2>
+                <p class="lead mb-5">Contact us today for a free consultation and let's build your future together.</p>
+                <a href="#" class="btn btn-light btn-lg rounded-pill">Get Started Now</a>
+            </div>
+        </section>
+
+        <!-- Blog/Insights Section -->
+        <section class="section-spacing" id="blog">
+            <div class="container">
+                <h2 class="text-center mb-5 fw-bold">Latest Insights & News</h2>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <img src="https://placehold.co/400x200/555/FFFFFF?text=AI+Future" class="card-img-top blog-post-img" alt="Blog Post Image 1">
+                            <div class="card-body p-4">
+                                <h3 class="card-title h5 fw-bold text-dark mb-2">The Impact of AI on Modern Businesses</h3>
+                                <p class="card-text text-muted mb-3">Exploring how artificial intelligence is reshaping industries and creating new opportunities for growth.</p>
+                                <a href="#" class="text-primary fw-semibold text-decoration-none">Read More &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <img src="https://placehold.co/400x200/555/FFFFFF?text=Cyber+Security" class="card-img-top blog-post-img" alt="Blog Post Image 2">
+                            <div class="card-body p-4">
+                                <h3 class="card-title h5 fw-bold text-dark mb-2">Top Cybersecurity Trends for 2025</h3>
+                                <p class="card-text text-muted mb-3">Stay ahead of threats with our expert analysis of the evolving cybersecurity landscape.</p>
+                                <a href="#" class="text-primary fw-semibold text-decoration-none">Read More &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <img src="https://placehold.co/400x200/555/FFFFFF?text=Digital+Strategy" class="card-img-top blog-post-img" alt="Blog Post Image 3">
+                            <div class="card-body p-4">
+                                <h3 class="card-title h5 fw-bold text-dark mb-2">Crafting a Winning Digital Strategy</h3>
+                                <p class="card-text text-muted mb-3">Key steps to develop a robust digital strategy that delivers tangible business outcomes.</p>
+                                <a href="#" class="text-primary fw-semibold text-decoration-none">Read More &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-light pt-5 pb-3 mt-4 rounded-top-4">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-md-4 col-lg-3">
+                    <h4 class="h5 text-white mb-4">BusinessSolutions</h4>
+                    <p class="text-muted">Leading the way in strategic business transformation and digital innovation.</p>
+                    <div class="social-links d-flex gap-3 mt-4">
+                        <a href="#" class="text-muted social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-muted social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-muted social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <h4 class="h5 text-white mb-4">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#features" class="text-muted footer-nav-link">Our Services</a></li>
+                        <li class="mb-2"><a href="#about" class="text-muted footer-nav-link">About Us</a></li>
+                        <li class="mb-2"><a href="#testimonials" class="text-muted footer-nav-link">Clients</a></li>
+                        <li class="mb-2"><a href="#blog" class="text-muted footer-nav-link">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                    <h4 class="h5 text-white mb-4">Contact Us</h4>
+                    <address class="text-muted">
+                        123 Business Rd, Suite 400<br>
+                        Innovation City, IN 12345<br>
+                        Email: <a href="mailto:info@businesssolutions.com" class="text-muted footer-nav-link">info@businesssolutions.com</a><br>
+                        Phone: <a href="tel:+1234567890" class="text-muted footer-nav-link">(123) 456-7890</a>
+                    </address>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h4 class="h5 text-white mb-4">Newsletter</h4>
+                    <p class="text-muted">Stay informed with our latest insights.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control newsletter-input" placeholder="Your Email" aria-label="Your Email" required>
+                            <button class="btn btn-primary newsletter-btn" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center border-top border-secondary pt-3">
+                <p class="mb-0">&copy; 2025 BusinessSolutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (Popper included) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close Bootstrap navbar on click in mobile view
+                if (window.innerWidth < 992) {
+                    const navbarCollapse = document.getElementById('navbarNav');
+                    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                    if (bsCollapse) {
+                        bsCollapse.hide();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
